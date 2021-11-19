@@ -1,5 +1,5 @@
 const bankModel = require("../models/bank.model");
-const fs = require('fs');
+
 
 const getAllUsers = async (req, res) => {
   const data = await bankModel.user.find({});
@@ -9,21 +9,21 @@ const getAllUsers = async (req, res) => {
 
 const addNewUser = (req, res) => {
   const {
-    userName,
-    userEmail,
-    userPassword,
-    userCash,
-    userCredit,
-    userAcountId,
+    name,
+    email,
+    password,
+    cash,
+    credit,
+    acountId,
   } = req.body;
 
-  const user = new userModel.book({
-    userName: userName,
-    userEmail: userEmail,
-    userPassword: userPassword,
-    userCash: userCash,
-    userCredit: userCredit,
-    userAcountId: userAcountId,
+  const user = new bankModel.user({
+    name: name,
+    email:email,
+    password: password,
+    cash: cash,
+    credit: credit,
+    acountId: acountId,
   });
 
   user.save((err, data) => {
@@ -43,22 +43,22 @@ const deleteUser = (req, res) => {
 const updateUser = (req, res) => {
   const { id } = req.params;
   const {
-    userName,
-    userEmail,
-    userPassword,
-    userCash,
-    userCredit,
-    userAcountId,
+    name,
+    email,
+    password,
+    cash,
+    credit,
+    acountId,
   } = req.body;
   bankModel.user.findByIdAndUpdate(
     id,
     {
-      userName: userName,
-      userEmail: userEmail,
-      userPassword: userPassword,
-      userCash: userCash,
-      userCredit: userCredit,
-      userAcountId: userAcountId,
+      name: name,
+      email: email,
+      password: password,
+      cash: cash,
+      credit: credit,
+      acountId: acountId,
     },
     { new: true },
     (err, data) => {
