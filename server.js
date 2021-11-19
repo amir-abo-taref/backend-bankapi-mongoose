@@ -22,9 +22,6 @@ app.get("/", (req, res) => {
   const buffer = JSON.parse(fs.readFileSync("./Users.json").toString());
   res.status(200).json(buffer);
 });
-// app.get('./Users.json', function (req, res) {
-//     res.status(200).json(usersController.showAllUser().users)
-// })
 
 app.post("/", (req, res) => {
   const users = usersController.showAllUser().users;

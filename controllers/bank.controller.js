@@ -1,9 +1,11 @@
 const bankModel = require("../models/bank.model");
+const fs = require('fs');
 
 const getAllUsers = async (req, res) => {
   const data = await bankModel.user.find({});
   return res.status(200).send(data);
 };
+
 
 const addNewUser = (req, res) => {
   const {
