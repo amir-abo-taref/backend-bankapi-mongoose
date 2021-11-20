@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   .put("/updateCredit", (req, res) => {
     userController.updateCredit(req, res);
   })
-  .put("/deposit", (req, res) => {
+  .put("/updateMoney", (req, res) => {
     userController.updateMoney(req, res);
   })
   .put("/withDrawMoney", (req, res) => {

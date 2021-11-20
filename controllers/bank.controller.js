@@ -185,7 +185,6 @@ const Transferring = (req, res) => {
 
 
 const updateMoney = (req, res) => {
-  console.log("updateMoney");
   const {
     amount,
     acountId
@@ -199,7 +198,7 @@ const updateMoney = (req, res) => {
       bankModel.findByIdAndUpdate(
         data._id,
         {
-        cash : data.cash + amount
+        cash : data.cash + +amount
         },
         { new: true },
         (err, data) => {
